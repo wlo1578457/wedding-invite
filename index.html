@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柏洹 💕 欣樺的婚禮喜帖</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <audio id="bg-music" src="assets/bg-music.mp3" autoplay loop></audio>
+
+  <section id="home" class="section hero">
+    <div class="hero-content">
+      <h1>張柏洹 💕 余欣樺</h1>
+      <p>我們相遇於平凡的日子，<br>走過笑與淚，<br>如今誠摯邀請您，<br>一同見證我們的愛。</p>
+      <p class="date">2025/11/15 · 桃園喜來登酒店</p>
+      <a href="#rsvp" class="btn">回覆出席 RSVP</a>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <h2>💍 婚紗輪播牆</h2>
+    <div class="carousel" id="carousel">
+      <div class="slides">
+        <img src="assets/wedding1.jpg" class="slide active" alt="婚紗照1">
+        <img src="assets/wedding2.jpg" class="slide" alt="婚紗照2">
+        <img src="assets/wedding3.jpg" class="slide" alt="婚紗照3">
+      </div>
+      <button class="carousel-btn prev">❮</button>
+      <button class="carousel-btn next">❯</button>
+    </div>
+    <div class="romantic-text" id="romanticText">我們的故事，從微笑開始。</div>
+  </section>
+
+  <section id="info" class="section">
+    <h2>🌿 婚禮資訊</h2>
+    <p>📅 日期：2025/11/15<br>🕓 證婚儀式 11:00　午宴入席 12:00<br>📍 地點：桃園喜來登酒店</p>
+  </section>
+
+  <section id="message" class="section">
+    <h2>💌 留言給新人</h2>
+    <form id="messageForm">
+      <input type="text" name="name" placeholder="您的名字" required>
+      <textarea name="message" placeholder="祝福留言..." required></textarea>
+      <button type="submit">送出祝福</button>
+    </form>
+    <div id="messages"></div>
+  </section>
+
+  <section id="rsvp" class="section">
+    <h2>✉️ 回覆出席</h2>
+    <a href="https://forms.gle/wonU5xR2WhvhsBxi6" target="_blank" class="btn">前往填寫表單</a>
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

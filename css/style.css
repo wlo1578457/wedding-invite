@@ -1,0 +1,25 @@
+body {font-family:'Noto Sans TC',sans-serif;margin:0;background:#f8faf8;color:#333;text-align:center;overflow-x:hidden;}
+.section {padding:60px 20px;}
+.hero {background:url('../assets/bg.jpg') center/cover no-repeat;color:white;height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;}
+.hero::after {content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);}
+.hero-content {position:relative;z-index:2;}
+.btn {background:#3fa46a;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;margin-top:10px;display:inline-block;}
+.btn:hover {background:#338d5b;}
+
+/* 婚紗輪播牆 */
+.carousel {position:relative;max-width:800px;margin:0 auto;overflow:hidden;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.1);}
+.slides {position:relative;height:480px;}
+.slide {position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease;}
+.slide.active {opacity:1;}
+.carousel-btn {position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.7);border:none;padding:10px 16px;cursor:pointer;border-radius:50%;font-size:22px;color:#2f8f57;}
+.carousel-btn.prev {left:15px;}
+.carousel-btn.next {right:15px;}
+@media(max-width:600px){.slide{height:300px;}}
+
+/* 浪漫文字 */
+.romantic-text {margin-top:25px;font-size:20px;color:#3a6748;opacity:0;transition:opacity 1.5s ease;}
+.romantic-text.show {opacity:1;}
+
+/* 花瓣飄落 */
+.petal {position:fixed;width:15px;height:15px;background:rgba(255,182,193,0.8);border-radius:50%;top:-10px;animation:fall linear infinite;}
+@keyframes fall {0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(100vh) rotate(360deg);}}
