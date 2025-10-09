@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>張柏洹 & 余欣樺 的婚禮喜帖</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 背景音樂（保持檔名不變） -->
+  <audio id="bgMusic" src="assets/bg-music.mp3" loop></audio>
+
+  <!-- 浮動控制按鈕：音樂 / 回頂端 -->
+  <button id="musicBtn" class="floating-btn" aria-label="音樂控制">🔇</button>
+  <button id="topBtn" class="floating-btn top" aria-label="回到頂端">⬆️</button>
+
+  <!-- ===== 頁首（BG.JPG，完整顯示圖片文字並往下偏移） ===== -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h3>💞 邀您共襄盛舉 💞</h3>
+      <h1>張柏洹 ＆ 余欣樺</h1>
+      <p class="lead">親愛的家人與朋友，誠摯邀請您一同見證我們的幸福時刻。</p>
+      <p class="meta">日期：2025 年 11 月 15 日　｜　證婚：10:00　午宴：12:00</p>
+      <p class="meta">地點：桃園喜來登酒店</p>
+    </div>
+  </header>
+
+  <!-- ===== 婚禮資訊（時間/地點/參加資訊 + RSVP 按鈕） ===== -->
+  <section id="info" class="section white-bg">
+    <div class="info-card">
+      <h2>📍 婚禮資訊</h2>
+      <p><strong >📅 日期：</strong>2025 年 11 月 15 日（星期六）</p>
+      <p><strong>⏰ 時間：</strong>10:00 證婚儀式(水晶教堂)　｜　12:00 午宴入席(桃園廳)</p>
+      <p><strong>🏨 地點：</strong>桃園喜來登酒店（桃園市大園區大觀路777號）</p>
+      <p><strong>參加資訊：</strong>請於表單回覆出席與人數。</p>
+      <div style="text-align:center; margin-top:12px;">
+        <a class="rsvp-btn" href="https://forms.gle/wonU5xR2WhvhsBxi6" target="_blank" rel="noopener">回覆出席</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Google Map + 交通資訊 ===== -->
+  <section class="section map-traffic white-bg">
+    <div class="map-card">
+      <h2>📍 桃園喜來登酒店（地圖）</h2>
+      <div class="map-frame">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.1835223896214!2d121.17316557537733!3d25.06176817779839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346820b23389285d%3A0xe126c4565e41bd76!2z5qGD5ZyS5Zac5L6G55m76YWS5bqXIFNoZXJhdG9uIFRhb3l1YW4gSG90ZWw!5e0!3m2!1szh-TW!2stw!4v1759938224875!5m2!1szh-TW!2stw" width="100%" height="640" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="traffic-info">
+      <h3>📍交通資訊 </h3>
+      <p><strong>飯店地址：</strong>桃園市大園區大觀路777號</p>
+      <ul>
+        <li><strong>🚗 開車：</strong>從國道二號、台15線或高鐵北路前往大觀路，飯店附設停車場。</li>
+        <li><strong>🚆 高鐵：</strong>到達高鐵桃園站轉乘計程車抵達。</li>
+        <li><strong>🚇 捷運 / 機場捷運：</strong>機場捷運 A18（高鐵桃園站）或 A15（大園站），轉乘計程車抵達。</li>
+        <li><strong>📞 飯店專線：</strong>03-385-1188。</li>
+      </ul>
+      <p class="note">※ 交通詳細資訊請以飯店官網為準：https://www.sheraton-taoyuan.com/service12-page59</p>
+    </div>
+  </section>
+
+  <!-- ===== 留言氣泡牆（localStorage） ===== -->
+<section id="message-wall" class="message-wall">
+  <h2 style="text-align: center;">💌 祝福留言</h2>
+    <div class="message-form">
+      <input id="guestName" placeholder="您的名字" maxlength="40">
+      <textarea id="guestMsg" rows="3" placeholder="寫下你的祝福..." maxlength="500"></textarea>
+      <div style="text-align:center"><button id="postBtn" class="btn">送出祝福</button></div>
+    </div>
+    <div id="bubbles" class="bubble-wall"></div>
+  </section>
+
+  <!-- ===== 婚紗輪播牆（頁尾，單張顯示，相框透明） ===== -->
+
+<section id="wedding-carousel" class="wedding-carousel">
+  <h2 style="text-align: center;">📸 婚紗照片</h2>
+    <div class="gallery-single">
+      <button class="arrow prev" aria-label="上一張">❮</button>
+      <div class="frame-wrap" id="frameWrap">
+        <div class="photo-frame"><img src="assets/wedding1.jpg" alt="婚紗1"></div>
+        <div class="photo-frame"><img src="assets/wedding2.jpg" alt="婚紗2"></div>
+        <div class="photo-frame"><img src="assets/wedding3.jpg" alt="婚紗3"></div>
+      </div>
+      <button class="arrow next" aria-label="下一張">❯</button>
+    </div>
+  </section>
+
+  <!-- 倒數計時固定視窗 -->
+  <div id="countdown" class="countdown">
+    <div>距婚禮還有</div>
+    <div id="countdownTimer">-- 天 -- : -- : --</div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
