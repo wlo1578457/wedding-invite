@@ -1,0 +1,68 @@
+/* ===== Hero Responsive (RWD Update) ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff, #fff5f7);
+}
+
+/* 讓背景圖隨裝置大小自適應 */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../assets/BG.JPG') center center / cover no-repeat;
+  filter: brightness(0.92);
+  z-index: 0;
+  transition: background-position 0.5s ease;
+}
+
+/* 手機板調整比例，避免被裁切太多 */
+@media (max-width: 768px) {
+  .hero {
+    height: 80vh;
+  }
+
+  .hero-bg {
+    background-position: center top;
+  }
+
+  .hero-content {
+    max-width: 90%;
+    padding: 16px 20px;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* 小螢幕（手機直式）再微調 */
+@media (max-width: 480px) {
+  .hero {
+    height: 70vh;
+  }
+
+  .hero-bg {
+    background-position: center top;
+  }
+
+  .hero-content {
+    padding: 14px 18px;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero h3 {
+    font-size: 1rem;
+  }
+}
