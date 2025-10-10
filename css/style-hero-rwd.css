@@ -1,68 +1,86 @@
-/* ===== Hero Responsive (RWD Update) ===== */
+/* ===== Hero（整個區塊等比例縮放）===== */
 .hero {
   position: relative;
-  height: 100vh;
+  width: 100%;
+  height: 100vh; /* 桌機時滿版 */
   min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(180deg, #fff, #fff5f7);
+  transition: height 0.5s ease;
 }
 
-/* 讓背景圖隨裝置大小自適應 */
+/* 背景：等比例縮放 */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../assets/BG.JPG') center center / cover no-repeat;
+  background: url('../assets/BG.JPG') center 15% / cover no-repeat;
   filter: brightness(0.92);
   z-index: 0;
-  transition: background-position 0.5s ease;
+  transition: transform 0.5s ease, background-size 0.5s ease;
 }
 
-/* 手機板調整比例，避免被裁切太多 */
+/* 文字內容 */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 20px 26px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 53%;
+  transition: all 0.3s ease;
+}
+
+.hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--pink-deep);
+  margin: 8px 0 4px 0;
+}
+
+.hero h3 {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--pink-deep);
+}
+
+/* 平板與手機：整個區塊高度縮小 + 背景與內容同步縮放 */
+@media (max-width: 1024px) {
+  .hero {
+    height: 85vh; /* 比例縮小 */
+  }
+  .hero-bg {
+    transform: scale(0.9);
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
-    height: 80vh;
+    height: 50vh; /* 再縮小 */
   }
-
   .hero-bg {
-    background-position: center top;
+    transform: scale(0.85);
   }
-
   .hero-content {
-    max-width: 90%;
     padding: 16px 20px;
-  }
-
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-
-  .hero h3 {
-    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.75);
   }
 }
 
-/* 小螢幕（手機直式）再微調 */
 @media (max-width: 480px) {
   .hero {
-    height: 70vh;
+    height: 65vh; /* 手機版更小 */
+    min-height: 400px;
   }
-
   .hero-bg {
-    background-position: center top;
+    transform: scale(0.8);
   }
-
-  .hero-content {
-    padding: 14px 18px;
-  }
-
   .hero h1 {
-    font-size: 1.4rem;
+    font-size: 1.2rem !important; /* 強制縮小 */
   }
 
   .hero h3 {
-    font-size: 1rem;
+    font-size: 0.95rem !important;
   }
 }
