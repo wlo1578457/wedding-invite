@@ -1,16 +1,36 @@
 // V3 script.js - 完整功能：localStorage 留言牆、單張輪播、花瓣、音樂、倒數、lightbox
 
 // 音樂控制 (bg-music.mp3)
-const bgMusic = document.getElementById('bgMusic');
-const musicBtn = document.getElementById('musicBtn');
-let musicPlaying = false;
-musicBtn.textContent = '🔇';
-musicBtn.addEventListener('click', ()=>{
-  if (musicPlaying){ bgMusic.pause(); musicBtn.textContent='🔇'; }
-  else { bgMusic.play().catch(()=>{}); musicBtn.textContent='🔊'; }
-  musicPlaying = !musicPlaying;
+document.addEventListener('DOMContentLoaded', () => {
+  const music = document.getElementById('bg-music');
+  const btn = document.getElementById('music-toggle');
+
+  // 🎵 預設靜音播放（瀏覽器允許）
+  music.play().catch(() => {});
+
+  // 🔓 第一次互動後解除靜音
+  const unlockAudio = () => {
+    if (music.muted) {
+      music.muted = false;
+      music.play().catch(() => {});
+    }
+    document.removeEventListener('click', unlockAudio);
+  };
+  document.addEventListener('click', unlockAudio);
+
+  // 🎚️ 按鈕控制靜音／播放
+  btn.addEventListener('click', () => {
+    if (music.muted) {
+      music.muted = false;
+      music.play();
+      btn.textContent = '🔈'; // 顯示開聲
+    } else {
+      music.muted = true;
+      btn.textContent = '🔇'; // 顯示靜音
+    }
+  });
 });
-document.addEventListener('click', function once(){ bgMusic.play().catch(()=>{}); document.removeEventListener('click', once); }, {once:true});
+
 
 // 回到頂端
 document.getElementById('topBtn').addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));

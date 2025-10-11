@@ -71,41 +71,13 @@ body{margin:0;font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:#
 
 /* responsive */
 @media(max-width:900px){
-  .frame-wrap{width:66vw;height:88vw}
+  .frame-wrap{width:96vw;height:50vw}
 }
 @media(max-width:600px){
   .map-traffic{flex-direction:column}
-  .frame-wrap{width:86vw;height:110vw}
+  .frame-wrap{width:86vw;height:50vw}
 }
 
-/* === Hero RWD 響應式調整 === */
-
-/* 針對手機和平板尺寸調整主圖比例 */
-@media (max-width: 1024px) {
-  .hero {
-    height: 80vh; /* 平板：稍微縮短主圖高度 */
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    height: 70vh; /* 手機直立時高度較短，避免圖太長 */
-  }
-  .hero-bg {
-    background-position: center top; /* 將主體往上集中顯示 */
-    background-size: cover;          /* 保持填滿畫面 */
-  }
-  .hero-content {
-    max-width: 90%;
-    padding: 16px;
-  }
-  .hero h1 {
-    font-size: 1.6rem; /* 手機字體稍微縮小 */
-  }
-  .hero h3 {
-    font-size: 1.1rem;
-  }
-}
 
 /* 婚禮資訊按鈕群組 */
 .info-btn-group {
