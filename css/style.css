@@ -103,3 +103,15 @@ body{margin:0;font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:#
   text-align: justify;
   font-weight: 500;
 }
+
+.no-gift {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #fff5f7;
+  border: 1px dashed var(--pink-deep);
+  border-radius: 10px;
+  text-align: justify;
+  color: var(--pink-deep);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
